@@ -34,5 +34,7 @@ pipeline {
 		    stages ('slack'){
 			    steps {
 				    slackSend baseUrl: 'https://hooks.slack.com/services /', channel: 'shivdemo1', color: 'good', teamDomain: 'abc', tokenCredentialId: 'shivdemo1', username: 'shivdemo1'
-}}	
+                                   }}
+	    }}
+
 	        
