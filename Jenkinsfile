@@ -19,11 +19,10 @@ pipeline {
 			  sh '/home/shivani/Documents/devops/apache-maven-3.9.6/bin/mvn install'
         }}
 	    stage('Deployment'){
-		    steps {
-			script {
+		    steps{
+			script{
 			 if ( env.ENV == 'QA' ){
         	sh 'cp target/red3.war /home/shivani/Documents/devops/apache-tomcat-9.0.88/webapps'
-
          echo "deployment has been COMPLETED on QA!"
 			 }
 			else ( env.ENV == 'UAT' ){
@@ -32,7 +31,7 @@ pipeline {
 			}      
 			}}}
 		    stage('slack'){
-			    steps {
+			    steps{
 				    slackSend baseUrl: 'https://hooks.slack.com/services /', channel: 'shivdemo1', color: 'good', teamDomain: 'abc', tokenCredentialId: 'shivdemo1', username: 'shivdemo1'
                                    }}
 }}
