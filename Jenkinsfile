@@ -29,7 +29,10 @@ pipeline {
 			else ( env.ENV == 'UAT' ){
     		sh 'cp target/red3.war /home/shivani/Documents/devops/apache-tomcat-9.0.88/webapps'
         echo "deployment has been done on UAT!"
-      }	
+      
 			}}}
+		    stages ('slack'){
+			    steps {
+				    slackSend baseUrl: 'https://hooks.slack.com/services /', channel: 'shivdemo1', color: 'good', teamDomain: 'abc', tokenCredentialId: 'shivdemo1', username: 'shivdemo1'
 }}	
 	        
