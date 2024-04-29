@@ -2,7 +2,7 @@ pipeline {
 	agent any 
 	
 	parameters {
-  		string defaultValue: 'DEV', name: 'ENV'
+  		choices defaultValue: 'DEV', name: 'ENV'
 	}
 	
 	triggers {
